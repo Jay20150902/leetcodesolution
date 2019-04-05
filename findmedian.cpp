@@ -17,12 +17,11 @@ public:
 
     vector<double> v;
     
-    /** initialize your data structure here. **/
+    
     MedianFinder() 
     {
        
     }
-
 
 
     ~MedianFinder() 
@@ -30,27 +29,24 @@ public:
        v.clear();
     }
     
-
-
-
+//add numbers
     void addNum(double num) 
     {
         v.push_back(num);
     }
 
-
-
+//display the elements in the vector
     void display()
     {
+        cout<<"The current vector is: ";
         for(int i = 0; i < v.size(); i++)
         {
-            cout<<v[i]<<endl;
+            cout<<v[i]<<" ";
         }
+        cout<<endl;
     }
     
-
-
-
+//find the median
     double findMedian(vector<double> v2,int n)
     {
         int a;
@@ -70,7 +66,7 @@ public:
     }
 
 
-//use selection sort
+//use selection sort to sort the vector
 void sort(vector<double> &v1,int n)
 {
      for(int i=0;i<n;i++)
@@ -99,21 +95,26 @@ void sort(vector<double> &v1,int n)
 
 int main()
 {
-    MedianFinder f;
+    //initialize the obj
+    MedianFinder m;
     double result;
 
-    f.addNum(5);
-    f.addNum(9);
-    f.addNum(8);
-    f.addNum(6);
-    f.addNum(7);
-    f.addNum(11);
+    m.addNum(5);
+    m.addNum(9);
+    m.addNum(8);
+    m.addNum(6);
+    m.addNum(7);
+    m.addNum(11);
     
-    f.display();
+    //m.display();
     cout<<endl;
-    f.sort(f.v,f.v.size());
-    f.display();
-    result = f.findMedian(f.v,f.v.size());
+
+    //sort the vector then display
+    m.sort(m.v,m.v.size());
+    m.display();
+
+    //display the median value
+    result = m.findMedian(m.v,m.v.size());
     cout<<"the median value is "<<result<<endl;
     return 0;
 }
